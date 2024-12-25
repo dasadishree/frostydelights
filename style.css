@@ -1,0 +1,109 @@
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(207,227, 242);
+    overflow: hidden;
+}
+
+.snowflake {
+    color: #fff;
+    font-size: 1.5em;
+    font-family: Arial, sans-serif;
+    text-shadow: 0 0 5px #000;
+    position: fixed;
+    top: -10%;
+    z-index: 1;
+    user-select: none;
+    cursor: default;
+    animation-name: snowflakes-fall, snowflakes-shake;
+    animation-duration: 10s, 3s;
+    animation-timing-function: linear, ease-in-out;
+    animation-iteration-count: infinite, infinite;
+    animation-play-state: running, running;
+    z-index: 1;
+}
+
+@keyframes snowflakes-fall {
+    0% { top: -10%; }
+    100% { top: 100%; }
+}
+
+@keyframes snowflakes-shake {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(80px); }
+}
+
+#start {
+    background-color: rgb(207, 227, 242);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+}
+
+.startbtn {
+    width: 20%;
+    height:10%;
+    margin: 100px;
+    padding: 15px 40px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    border-radius: 12px;
+    font-size: 100px;
+    background: transparent;
+    box-shadow: 0 0 0 20px white;
+}
+.startbtn::before{
+    content: "";
+  background: linear-gradient(
+    45deg,
+    rgb(202, 219, 223), rgb(152,188,193), rgb(106, 155, 165), rgb(60, 118, 130), rgb(19, 70, 81), rgb(14, 46, 53)
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 1;
+}
+@keyframes glowing {
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+}
+.startbtn:active {
+    font-weight: bold;
+    transform: scale(1.1)
+}
+
+
+.start-image{
+    width:50%;
+    z-index: 10;
+}
+
+header {
+    background-color: rgb(207, 227, 242);
+    padding:20px;
+    text-align: center;
+    display:none;
+}
+.content {
+    padding: 20px;
+    background-color: white;
+    display: none; 
+}
+
